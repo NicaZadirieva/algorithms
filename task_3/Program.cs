@@ -32,6 +32,10 @@ Dictionary<char, bool> makeDictionaryAsIndex(char[] intArray)
     Dictionary<char, bool> map = new Dictionary<char, bool>();
     foreach (var item in intArray)
     {
+        if (!Char.IsLetter(item))
+        {
+            continue;
+        }
         if (!map.ContainsKey(item))
         {
             map.Add(item, true);
