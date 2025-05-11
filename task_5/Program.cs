@@ -1,14 +1,15 @@
-﻿int calcShortestPaths(int X, int Y, int tempX = 0, int tempY = 0)
+﻿int calcShortestPaths(int X, int Y)
 {
-    if (tempX == X && tempY == Y)
+    if (X == 0 && Y == 0)
     {
         return 1;
     }
-    if (tempX > X || tempY > Y)
+    if (X < 0 || Y < 0)
     {
         return 0;
     }
-    return calcShortestPaths(X, Y, tempX + 1, tempY) + calcShortestPaths(X, Y, tempX, tempY + 1);
+
+    return calcShortestPaths(X - 1, Y) + calcShortestPaths(X, Y - 1);
 }
 
 void main()
