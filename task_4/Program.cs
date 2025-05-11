@@ -1,13 +1,15 @@
-﻿// обращение строки через стек
+﻿using System.Text;
+
+// обращение строки через стек
 string reserved(string word)
 {
-    string reserved = "";
+    StringBuilder reserved = new StringBuilder();
     Stack<char> lettersStack = new Stack<char>(word.ToCharArray());
     foreach (var item in lettersStack)
     {
-        reserved += item.ToString();
+        reserved.Append(item.ToString());
     }
-    return reserved;
+    return reserved.ToString();
 }
 
 void main()
