@@ -1,8 +1,12 @@
 ﻿Nullable<int> findMissingNumber(int[] array)
 {
-    for (var i = 0; i < array.Length; i++)
+    int[] copyArray = new int[array.Length];
+    System.Array.Copy(array, copyArray, array.Length);
+    System.Array.Sort(copyArray);
+
+    for (var i = 0; i < copyArray.Length; i++)
     {
-        if (Array.IndexOf(array, array[i]) >= 0)
+        if (copyArray[i] != i)
         {
             return i;
         }
